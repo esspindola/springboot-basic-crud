@@ -157,14 +157,14 @@ springdoc.swagger-ui.path=/swagger-ui.html
 
 #### ✅ Diseño de Endpoints RESTful
 
-| Método HTTP | Endpoint              | Acción              |
-| ----------- | --------------------- | ------------------- |
-| GET         | `/api/productos`      | Listar todos        |
-| GET         | `/api/productos/{id}` | Obtener por ID      |
-| POST        | `/api/productos`      | Crear nuevo         |
-| PUT         | `/api/productos/{id}` | Actualizar completo |
-| PATCH       | `/api/productos/{id}` | Actualizar parcial  |
-| DELETE      | `/api/productos/{id}` | Eliminar (lógico)   |
+| Método HTTP | Endpoint                     | Acción              |
+| ----------- | ---------------------------- | ------------------- |
+| GET         | `/api/productos`             | Listar todos        |
+| GET         | `/api/productos/{id}`        | Obtener por ID      |
+| POST        | `/api/productos`             | Crear nuevo         |
+| PUT         | `/api/productos/{id}`        | Actualizar completo |
+| PATCH       | `/api/productos/{id}`        | Actualizar parcial  |
+| DELETE      | `/api/productos/{id}`        | Eliminar (lógico)   |
 | DELETE      | `/api/productos/{id}/fisico` | Eliminar (físico)   |
 
 #### ✅ Códigos HTTP Apropiados
@@ -300,7 +300,7 @@ Separación clara:
 
 ```sql
 INSERT INTO productos (nombre, descripcion, precio, stock, ...)
-VALUES ('Laptop Dell XPS 13', '...', 1299.99, 15, ...);
+VALUES ('Alya Sometimes Hides Her Feelings in Russian Vol. 1', '...', 9.99, 50, ...);
 ```
 
 Configuración necesaria:
@@ -372,6 +372,19 @@ GET /api/productos/stock-bajo?stockMinimo=10
 // Solo productos activos
 GET /api/productos?soloActivos=true
 ```
+
+### 4.7 Paginación ⭐
+
+**Endpoints paginados:**
+
+- `GET /api/productos?page=0` - Primera página (10 productos)
+- `GET /api/productos?page=1&soloActivos=true` - Segunda página de activos
+
+**Características:**
+
+- 10 productos por página (fijo)
+- Parámetro `page` (empieza en 0)
+- Respuesta tipo `Page<Producto>` con metadata de paginación
 
 ---
 

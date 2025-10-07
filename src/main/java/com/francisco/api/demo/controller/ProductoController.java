@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,18 +39,23 @@ public class ProductoController {
     private final ProductoService productoService;
 
     /**
-     * GET /api/productos Obtiene todos los productos del sistema.
+     * GET /api/productos Obtiene todos los productos del sistema con paginación
+     * (10 por página)
      *
+     * @param page Número de página (inicia en 0)
      * @param soloActivos Parámetro opcional para filtrar solo productos activos
-     * @return Lista de productos con código 200 OK
+     * @return Página de productos con código 200 OK
      */
     @GetMapping
-    public ResponseEntity<List<Producto>> obtenerTodos(
+    public ResponseEntity<Page<Producto>> obtenerTodos(
+            @RequestParam(required = false, defaultValue = "0") int page,
             @RequestParam(required = false, defaultValue = "false") Boolean soloActivos) {
 
-        List<Producto> productos = soloActivos
-                ? productoService.obtenerActivos()
-                : productoService.obtenerTodos();
+        Pageable pageable = PageRequest.of(page, 10);
+
+        Page<Producto> productos = soloActivos
+                ? productoService.obtenerActivosPaginado(pageable)
+                : productoService.obtenerTodosPaginado(pageable);
 
         return ResponseEntity.ok(productos);
     }

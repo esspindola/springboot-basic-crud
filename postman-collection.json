@@ -88,7 +88,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nombre\": \"Tablet Samsung Galaxy Tab S8\",\n  \"descripcion\": \"Tablet Android con pantalla de 11 pulgadas, 8GB RAM\",\n  \"precio\": 699.99,\n  \"stock\": 20\n}"
+              "raw": "{\n  \"nombre\": \"Attack on Titan Vol. 1\",\n  \"descripcion\": \"La humanidad lucha por sobrevivir contra titanes gigantes\",\n  \"precio\": 10.99,\n  \"stock\": 50\n}"
             },
             "url": {
               "raw": "http://localhost:8080/api/productos",
@@ -111,7 +111,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nombre\": \"Laptop Dell XPS 13 (Actualizada)\",\n  \"descripcion\": \"Laptop ultraligera con procesador Intel i7, 16GB RAM, 1TB SSD\",\n  \"precio\": 1399.99,\n  \"stock\": 10,\n  \"activo\": true\n}"
+              "raw": "{\n  \"nombre\": \"Alya Sometimes Hides Her Feelings in Russian Vol. 1 (Actualizado)\",\n  \"descripcion\": \"Romance y comedia sobre Alya - Edición especial\",\n  \"precio\": 12.99,\n  \"stock\": 45,\n  \"activo\": true\n}"
             },
             "url": {
               "raw": "http://localhost:8080/api/productos/1",

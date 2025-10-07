@@ -56,17 +56,18 @@ src/main/java/com/francisco/api/demo/
 
 ### Base URL: `http://localhost:8080/api/productos`
 
-| Método | Endpoint                                   | Descripción                          |
-| ------ | ------------------------------------------ | ------------------------------------ |
-| GET    | `/api/productos`                           | Obtener todos los productos          |
-| GET    | `/api/productos?soloActivos=true`          | Obtener solo productos activos       |
-| GET    | `/api/productos/{id}`                      | Obtener un producto por ID           |
-| GET    | `/api/productos/stock-bajo?stockMinimo=10` | Productos con stock bajo             |
-| POST   | `/api/productos`                           | Crear un nuevo producto              |
-| PUT    | `/api/productos/{id}`                      | Actualizar completamente un producto |
-| PATCH  | `/api/productos/{id}`                      | Actualizar parcialmente un producto  |
-| DELETE | `/api/productos/{id}`                      | Eliminar lógicamente un producto     |
-| DELETE | `/api/productos/{id}/fisico`               | Eliminar físicamente un producto     |
+| Método | Endpoint                                   | Descripción                                 |
+| ------ | ------------------------------------------ | ------------------------------------------- |
+| GET    | `/api/productos`                           | Obtener todos los productos                 |
+| GET    | `/api/productos?page=0`                    | Obtener productos (página 0, 10 por página) |
+| GET    | `/api/productos?soloActivos=true`          | Obtener solo productos activos              |
+| GET    | `/api/productos/{id}`                      | Obtener un producto por ID                  |
+| GET    | `/api/productos/stock-bajo?stockMinimo=10` | Productos con stock bajo                    |
+| POST   | `/api/productos`                           | Crear un nuevo producto                     |
+| PUT    | `/api/productos/{id}`                      | Actualizar completamente un producto        |
+| PATCH  | `/api/productos/{id}`                      | Actualizar parcialmente un producto         |
+| DELETE | `/api/productos/{id}`                      | Eliminar lógicamente un producto            |
+| DELETE | `/api/productos/{id}/fisico`               | Eliminar físicamente un producto            |
 
 ### Ejemplos de Uso
 
@@ -83,10 +84,10 @@ POST http://localhost:8080/api/productos
 Content-Type: application/json
 
 {
-  "nombre": "Tablet Samsung Galaxy Tab S8",
-  "descripcion": "Tablet Android con pantalla de 11 pulgadas",
-  "precio": 699.99,
-  "stock": 20
+  "nombre": "Attack on Titan Vol. 1",
+  "descripcion": "La humanidad lucha por sobrevivir contra titanes gigantes",
+  "precio": 10.99,
+  "stock": 50
 }
 ```
 
@@ -97,10 +98,10 @@ PUT http://localhost:8080/api/productos/1
 Content-Type: application/json
 
 {
-  "nombre": "Laptop Dell XPS 13 (Actualizada)",
-  "descripcion": "Laptop con especificaciones mejoradas",
-  "precio": 1399.99,
-  "stock": 10,
+  "nombre": "Alya Sometimes Hides Her Feelings in Russian Vol. 1 (Actualizado)",
+  "descripcion": "Romance y comedia sobre Alya - Edición especial",
+  "precio": 12.99,
+  "stock": 45,
   "activo": true
 }
 ```
@@ -112,8 +113,8 @@ PATCH http://localhost:8080/api/productos/1
 Content-Type: application/json
 
 {
-  "precio": 1199.99,
-  "stock": 12
+  "precio": 11.99,
+  "stock": 48
 }
 ```
 
@@ -200,6 +201,12 @@ DELETE http://localhost:8080/api/productos/1/fisico
 - DELETE estándar: marca el producto como inactivo
 - DELETE /fisico: elimina permanentemente de la base de datos
 
+### ✨ Paginación
+
+- 10 productos por página
+- Parámetro `page` (ejemplo: `?page=0`)
+- Respuesta incluye metadata de paginación
+
 ## Instrucciones de Ejecución
 
 ### Requisitos Previos
@@ -247,6 +254,7 @@ DELETE http://localhost:8080/api/productos/1/fisico
 Se incluye el archivo **`postman-collection.json`** con todos los endpoints ya configurados.
 
 ### Cómo usar:
+
 1. Descarga e instala [Postman](https://www.postman.com/downloads/)
 2. Abre Postman y haz click en **"Import"**
 3. Selecciona el archivo `postman-collection.json`
@@ -254,6 +262,7 @@ Se incluye el archivo **`postman-collection.json`** con todos los endpoints ya c
 5. Click en cualquier endpoint → **"Send"** para probar
 
 ### Endpoints incluidos:
+
 - ✅ Obtener todos los productos
 - ✅ Crear producto nuevo
 - ✅ Actualizar completo (PUT)

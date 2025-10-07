@@ -96,12 +96,14 @@ http://localhost:8080/h2-console
 **¿Qué es?** Archivo JSON con todos los endpoints de la API ya configurados para usar con [Postman](https://www.postman.com/downloads/).
 
 **¿Cómo importarlo?**
+
 1. Abre Postman
 2. Click en **"Import"** (esquina superior izquierda)
 3. Selecciona el archivo `postman-collection.json`
 4. ¡Listo! Verás todos los endpoints organizados
 
 **Incluye:**
+
 - Todos los métodos GET, POST, PUT, PATCH, DELETE
 - Ejemplos de datos para crear/actualizar productos
 - Casos de error para probar validaciones
@@ -110,18 +112,19 @@ http://localhost:8080/h2-console
 
 ## 📊 Datos Iniciales
 
-La aplicación viene con 10 productos de ejemplo:
+La aplicación viene con 20 mangas de ejemplo:
 
-1. Laptop Dell XPS 13
-2. Mouse Logitech MX Master 3
-3. Teclado Mecánico Corsair K95
-4. Monitor LG UltraWide 34"
-5. Webcam Logitech C920
-6. Audífonos Sony WH-1000XM4
-7. SSD Samsung 970 EVO 1TB
-8. Impresora HP LaserJet Pro
-9. Router ASUS RT-AX88U
-10. Hub USB-C Anker
+1. Alya Sometimes Hides Her Feelings in Russian Vol. 1
+2. My Dress-Up Darling Vol. 1
+3. One Piece Vol. 105
+4. Naruto Vol. 72
+5. Dan Dadan Vol. 1
+6. Jujutsu Kaisen Vol. 1
+7. Spy x Family Vol. 10
+8. Chainsaw Man Vol. 1
+9. Sakamoto Days Vol. 1
+10. Oshi no Ko Vol. 1
+    (Y 10 más...)
 
 ---
 

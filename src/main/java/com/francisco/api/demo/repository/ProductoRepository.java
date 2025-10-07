@@ -3,6 +3,8 @@ package com.francisco.api.demo.repository;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,11 +18,12 @@ import com.francisco.api.demo.model.Producto;
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
     /**
-     * Busca productos activos
+     * Busca productos activos con paginación
      *
-     * @return Lista de productos activos
+     * @param pageable Objeto Pageable para la paginación
+     * @return Página de productos activos
      */
-    List<Producto> findByActivoTrue();
+    Page<Producto> findByActivoTrue(Pageable pageable);
 
     /**
      * Busca un producto por su nombre (ignorando mayúsculas o minúsculas)

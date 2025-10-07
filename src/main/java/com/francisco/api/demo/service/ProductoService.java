@@ -3,6 +3,9 @@ package com.francisco.api.demo.service;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.francisco.api.demo.model.Producto;
 
 /**
@@ -12,18 +15,20 @@ import com.francisco.api.demo.model.Producto;
 public interface ProductoService {
 
     /**
-     * Obtiene todos los productos del sistema
+     * Obtiene todos los productos del sistema con paginación (10 por pag)
      *
-     * @return Lista de todos los productos
+     * @param pageable Configuración de paginación
+     * @return Página de productos
      */
-    List<Producto> obtenerTodos();
+    Page<Producto> obtenerTodosPaginado(Pageable pageable);
 
     /**
-     * Obtiene solo los productos activos
+     * Obtiene solo los productos activos con paginación (10 por página)
      *
-     * @return Lista de productos activos
+     * @param pageable Configuración de paginación
+     * @return Página de productos activos
      */
-    List<Producto> obtenerActivos();
+    Page<Producto> obtenerActivosPaginado(Pageable pageable);
 
     /**
      * Busca un producto por su ID
