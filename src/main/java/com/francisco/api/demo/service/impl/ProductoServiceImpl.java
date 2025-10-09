@@ -106,9 +106,9 @@ public class ProductoServiceImpl implements ProductoService {
                 throw new InvalidProductoException("El campo '" + campo + "' no existe en Producto");
             } catch (IllegalAccessException e) {
                 throw new InvalidProductoException("No se puede acceder al campo '" + campo + "'");
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 throw new InvalidProductoException(
-                        "Error al actualizar el campo '" + campo + "': " + e.getMessage());
+                        "Error al convertir el campo '" + campo + "': valor inválido");
             }
         });
 
@@ -161,31 +161,23 @@ public class ProductoServiceImpl implements ProductoService {
      * para el método PATCH
      */
     private Object convertirValor(String campo, Object valor) {
-        switch (campo) {
-            case "precio":
-                if (valor instanceof Number) {
-                    return new BigDecimal(valor.toString());
-                }
-                return new BigDecimal((String) valor);
-
-            case "stock":
-                if (valor instanceof Number) {
-                    return ((Number) valor).intValue();
-                }
-                return Integer.parseInt(valor.toString());
-
-            case "activo":
-                if (valor instanceof Boolean) {
-                    return valor;
-                }
-                return Boolean.parseBoolean(valor.toString());
-
-            case "nombre":
-            case "descripcion":
-                return valor.toString();
-
-            default:
-                return valor;
-        }
+        return switch (campo) {
+            case "precio" ->
+                valor instanceof Number
+                ? new BigDecimal(valor.toString())
+                : new BigDecimal((String) valor);
+            case "stock" ->
+                valor instanceof Number number
+                ? number.intValue()
+                : Integer.valueOf((String) valor);
+            case "activo" ->
+                valor instanceof Boolean
+                ? valor
+                : Boolean.valueOf((String) valor);
+            case "nombre", "descripcion" ->
+                valor != null ? valor.toString() : "";
+            default ->
+                valor;
+        };
     }
 }
