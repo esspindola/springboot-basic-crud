@@ -17,27 +17,9 @@ import com.francisco.api.demo.model.Producto;
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
-    /**
-     * Busca productos activos con paginación
-     *
-     * @param pageable Objeto Pageable para la paginación
-     * @return Página de productos activos
-     */
     Page<Producto> findByActivoTrue(Pageable pageable);
 
-    /**
-     * Busca un producto por su nombre (ignorando mayúsculas o minúsculas)
-     *
-     * @param nombre Nombre del producto
-     * @return Optional con el producto si existe
-     */
     Optional<Producto> findByNombreIgnoreCase(String nombre);
 
-    /**
-     * Busca productos cuyo stock sea menor o igual al valor especificado
-     *
-     * @param stock Valor máximo de stock
-     * @return Lista de productos con stock bajo
-     */
     List<Producto> findByStockLessThanEqual(Integer stock);
 }

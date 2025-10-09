@@ -21,8 +21,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Entidad que representa un Producto en el sistema. Usa JPA para el mapeo
- * con la base de datos H2
+ * Entidad que representa un Producto en el sistema. Usa JPA para el mapeo con
+ * la base de datos H2
  */
 @Entity
 @Table(name = "productos")

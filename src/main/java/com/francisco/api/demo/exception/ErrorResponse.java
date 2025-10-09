@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 /**
  * Clase que representa la estructura de respuesta de error de la API.
  */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

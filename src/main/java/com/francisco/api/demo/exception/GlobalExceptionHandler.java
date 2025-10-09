@@ -13,15 +13,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
 /**
- * Manejador global de excepciones para la API. Usa  @ControllerAdvice para
+ * Manejador global de excepciones para la API. Usa @ControllerAdvice para
  * capturar excepciones en todos los controladores.
  */
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    /**
-     * Maneja la excepción cuando no se encuentra un producto
-     */
     @ExceptionHandler(ProductoNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleProductoNotFoundException(
             ProductoNotFoundException ex,
@@ -38,9 +36,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
-    /**
-     * Maneja excepciones de validación de datos del producto
-     */
+    // Validación de producto exep
     @ExceptionHandler(InvalidProductoException.class)
     public ResponseEntity<ErrorResponse> handleInvalidProductoException(
             InvalidProductoException ex,
@@ -57,9 +53,8 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
-    /**
-     * Maneja errores de validación de Bean Validation
-     */
+
+    // Validación de Bean Validation
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidationExceptions(
             MethodArgumentNotValidException ex,
@@ -82,9 +77,8 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
-    /**
-     * Maneja cualquier otra excepción no contemplada
-     */
+
+    // Manejo global de excepciones no controladas
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGlobalException(
             Exception ex,
