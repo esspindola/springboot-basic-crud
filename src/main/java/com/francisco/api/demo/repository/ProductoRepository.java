@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.francisco.api.demo.model.Producto;
 
 /**
- * Repositorio para gestionar las operaciones de acceso a datos de Producto.
+ * Repo para gestionar las operaciones de acceso a datos de Producto.
  * Extiende JpaRepository para obtener métodos CRUD predefinidos
  */
 @Repository

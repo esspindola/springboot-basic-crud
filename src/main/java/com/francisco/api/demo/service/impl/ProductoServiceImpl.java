@@ -19,7 +19,7 @@ import com.francisco.api.demo.service.ProductoService;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Implementación del servicio de productos. Contiene toda la lógica de negocio
+ * Implementación del servicio de productos. Tiene toda la lógica de negocio
  * para la gestión de productos. Usa @RequiredArgsConstructor de Lombok para
  * inyección por constructor
  */
@@ -158,7 +158,7 @@ public class ProductoServiceImpl implements ProductoService {
 
     /**
      * Convierte el valor recibido al tipo apropiado según el campo. Necesario
-     * para el método de actualización parcial (PATCH)
+     * para el método PATCH
      */
     private Object convertirValor(String campo, Object valor) {
         switch (campo) {
