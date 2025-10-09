@@ -482,16 +482,5 @@ Este proyecto demuestra la aplicación práctica de todos los conceptos aprendid
 
 El resultado es una API profesional, mantenible y lista para producción.
 
----
-
-## 8. REFERENCIAS
-
-- [Spring Boot Documentation](https://spring.io/projects/spring-boot)
-- [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
-- [Bean Validation](https://beanvalidation.org/)
-- [Lombok](https://projectlombok.org/)
-- [OpenAPI/Swagger](https://springdoc.org/)
-
----
 
 **Fin del documento**
