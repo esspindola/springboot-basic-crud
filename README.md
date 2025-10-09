@@ -168,19 +168,8 @@ http://localhost:8080/api/productos
   - URL: `jdbc:h2:mem:testdb`
   - Usuario: `sa`
   - Password: _(vacío)_
-- **Postman**: Importar `postman-collection.json`
 
 ## Pruebas
-
-### Postman
-
-Se incluye `postman-collection.json` con todos los endpoints configurados.
-
-**Importar:**
-
-1. Abre Postman
-2. Click en "Import"
-3. Selecciona `postman-collection.json`
 
 ### Swagger
 
